@@ -16,7 +16,7 @@ body{
 
 /* styling quiz area */
 
-#quiz-body{
+#question-container{
     background-color: aqua;
     width: 900px;
     height: 600px;
@@ -24,10 +24,6 @@ body{
     opacity: 0.7;
     margin: auto;
     font-family: 'Fredoka One', cursive;
+    padding: 30px;
 }
 
-/* game modes */
-
-#monarch{
-    list-style: none;
-}
