@@ -1,5 +1,9 @@
+/* custom google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
 body{
     background-color: rgb(0, 0, 101);
+    font-family: 'Fredoka One', cursive;
 }
 
 /* styling header */
@@ -7,10 +11,23 @@ body{
 #title{
     color: bisque;
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    text-align: center;
 }
 
 /* styling quiz area */
 
 #quiz-body{
     background-color: aqua;
+    width: 900px;
+    height: 600px;
+    border-radius: 10px;
+    opacity: 0.7;
+    margin: auto;
+    font-family: 'Fredoka One', cursive;
+}
+
+/* game modes */
+
+#monarch{
+    list-style: none;
 }
