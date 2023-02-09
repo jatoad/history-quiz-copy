@@ -1,11 +1,21 @@
 // code from love maths walkthrough project
-document.addEventListener("DOMContentLoaded", function(){
+document.addEventListener("DOMContentLoaded", function() {
     let buttons = document.getElementsByTagName("button");
-})
+
+    for (let button of buttons) {
+        button.addEventListener("click", function() {
+            if (this.getAttribute("data-type") === "submit") {
+                checkAnswer();
+            } else {
+                let revealScore = this.getAttribute("data-type");
+                runGame(gameType);
+            }
+        });
+    }
 
 // code from love maths walkthrough project
 
-function submitAnswer(){
+function showScore(){
     let submitButton = document.getElementsByClassName('submit-button');
     submitButton.addEventListener('',function(){
 
@@ -25,10 +35,4 @@ function checkAnswer(){
     let checkAnswer9 = document.getElementById('correct9').innerHTML;
     let checkAnswer10 = document.getElementById('correct10').innerHTML;
     
-
-
-}
-
-function addUsername(){
-
 }
