@@ -1,108 +1,53 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Everything History
+this web page aims to provide a history quiz that tests all aspects of history for the user. It is a quick fun and challenging quiz that aims to teach some fun facts swell as test the user. 
 
-Welcome jatoad,
+![screen shot of website on different size screens](/assets/images/amiresponsive.png)
+- Showing how the website fits on all screen sizes
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+## - Features
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+### - Answer Question Alert
 
-## Gitpod Reminders
+![screen shot of alert telling user to answer question](/assets/images/answer.png)
+- To complete the quiz, the user must fill in all the answers. if not, an alert will pop up telling them to fill in 
+and answers thta ave been left blank. This is to allow the user to get the top score they can. All questions are multiple choice with 4 selections available, meaining even if they are not sure, they will still have a 25% chance of success  
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+### - scrolable questions
 
-`python3 -m http.server`
+![screen shot of website question area](/assets/images/mainstructure.png)
+- Having to scroll to reach the next queston means that the user is prompted to take each question in turn, before moving immediately ont the later questions. Tis helps to prevent questions from being left out by accident. 
 
-A blue button should appear to click: _Make Public_,
+### - score
 
-Another blue button should appear to click: _Open Browser_.
+![screen shot of website score boxes](/assets/images/score.png)
+- When submit button is pressed, score is gathered and posted as an alert for the user to see.   
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+### - Future Additions to the Website
+- in the future i would like to add a sign up section, where the user can enter a username into the quiz, and score is displayed on the alert with the username. 
 
-A blue button should appear to click: _Make Public_,
+## - Testing
 
-Another blue button should appear to click: _Open Browser_.
+- Website was tested on Safari and Chrome and ran with no issues 
+- each question was tested to see if the score worked aswell as the answer button alert 
+- page was tested using dev tools to make sure that it was suitable for all screen sizes 
+-console.logs used to make sure that the getElements were all working correctly. this was done for each section of code. 
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+### Validating HTML and CSS
+- CSS passed the [W3C jigsaw CSS](https://jigsaw.w3.org/css-validator/) with no issues 
+- HTML passed the [W3C Validator](https://validator.w3.org/) on second attempt after space was removed in image-jpeg file.
 
-To log into the Heroku toolbelt CLI:
+### Bug fixes 
+- multiple issues fixed with file paths when creating the live site
+- illegal character in image file name removed
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+## - Credits 
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
-
-------
-
-## Release History
-
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
-
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
-
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
-
-**July 2 2021:** Remove extensions that are not available in Open VSX.
-
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
-
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
-
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
-
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
-
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
-
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
-
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
-------
-
-## FAQ about the uptime script
-
-**Why have you added this script?**
-
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
-
-**How will this affect me?**
-
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
-
----
-
-Happy coding!
+### Images 
+- all images are sourced from [Adobe Stock](https://stock.adobe.com/uk/)
+### Icons 
+- all icons are sourced from [Font Awesome](https://fontawesome.com/)
+### Code
+- code from [W3 Schools](https://www.w3schools.com/) 
+**.content::after {content: "";clear: both;display: table;}**
+### Fonts 
+- All fonts from [Google Fonts](https://fonts.google.com/)
