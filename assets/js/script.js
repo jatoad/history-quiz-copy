@@ -1,9 +1,8 @@
-// code from love maths walkthrough project
+// code from love maths walkthrough project. 
 
 document.addEventListener("DOMContentLoaded", function() {
 
     let buttons = document.getElementsByTagName("button");
-
     console.log('addEventListener ', buttons);
 
     for (let button of buttons) {
