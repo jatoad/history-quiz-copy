@@ -35,6 +35,7 @@ and answers thta ave been left blank. This is to allow the user to get the top s
 ### Validating HTML and CSS
 - CSS passed the [W3C jigsaw CSS](https://jigsaw.w3.org/css-validator/) with no issues 
 - HTML passed the [W3C Validator](https://validator.w3.org/) on second attempt after space was removed in image-jpeg file.
+- JavaScript runs through JShint no major errors [jshint validator](https://jshint.com/)
 
 ### Bug fixes 
 - multiple issues fixed with file paths when creating the live site
