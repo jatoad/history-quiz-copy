@@ -1,235 +1,264 @@
-
 // code from love maths walkthrough project
+
 document.addEventListener("DOMContentLoaded", function() {
 
     let buttons = document.getElementsByTagName("button");
 
-    console.log('addEventListener ', buttons)
+    console.log('addEventListener ', buttons);
 
     for (let button of buttons) {
         button.addEventListener("click", function() {
-            if (this.getAttribute("data-type") === "submit") {
-                checkAnswer();
-            } else {
-                alert('Submit not clicked')
+            if (this.getAttribute("data-type") === "check-answers") {
+                checkAnswers();
+            } else if (this.getAttribute("data-type") === "show-answers") {
+                showAnswers();
+            } else if (this.getAttribute("data-type") === "reset-answers") {
+                resetAnswers();
             }
         });
     }
 
 });
-// code from love maths walkthrough project
 
-function showScore(){
+function showAnswers(){
 
-    console.log('showScore ')
-    let submitButton = document.getElementsByClassName('submit-button');
-    submitButton.addEventListener('',function(){
+    console.log('showAnswers ');
 
-    })
+    // Show answers
+    var elements = document.getElementsByTagName("input");
+
+    for (var i = 0; i < elements.length; i++) {
+            if (elements[i].id == "correct1" ||
+                elements[i].id == "correct2" ||
+                elements[i].id == "correct3" ||
+                elements[i].id == "correct4" ||
+                elements[i].id == "correct5" ||
+                elements[i].id == "correct6" ||
+                elements[i].id == "correct7" ||
+                elements[i].id == "correct8" ||
+                elements[i].id == "correct9" ||
+                elements[i].id == "correct10") {
+                elements[i].checked = true;
+            }
+        }
+}
+
+function resetAnswers(){
+
+    console.log('resetAnswers ');
+
+    // Reset each button
+    var elements = document.getElementsByTagName("input");
+
+    for (var i = 0; i < elements.length; i++) {
+            if (elements[i].type == "radio") {
+                elements[i].checked = false;
+            }
+        }
 
 }
 
-function checkAnswer(){
+// code from love maths walkthrough project
 
-    console.log('checkAnswer ')
+function checkAnswers(){
 
-    let score = 0
-    const NOT_SET = 'not_set'
+    console.log('checkAnswers ');
+
+    let score = 0;
+    const NOT_SET = 'not_set';
 
     var q = document.getElementsByName('question1');
-    var a1 = NOT_SET
+    var a1 = NOT_SET;
     for (let i of q) {
 
         if (i.checked) {
-            a1 = i.id
+            a1 = i.id;
         }
     }
   
     var q = document.getElementsByName('question2');
-    var a2 = NOT_SET
+    var a2 = NOT_SET;
     for (let i of q) {
 
         if (i.checked) {
-            a2 = i.id
+            a2 = i.id;
         }
     }
 
     var q = document.getElementsByName('question3');
-    var a3 = NOT_SET
+    var a3 = NOT_SET;
     for (let i of q) {
 
         if (i.checked) {
-            a3 = i.id
+            a3 = i.id;
         }
     }
 
     var q = document.getElementsByName('question4');
-    var a4 = NOT_SET
+    var a4 = NOT_SET;
     for (let i of q) {
 
         if (i.checked) {
-            a4 = i.id
+            a4 = i.id;
         }
     }
 
     var q = document.getElementsByName('question5');
-    var a5 = NOT_SET
+    var a5 = NOT_SET;
     for (let i of q) {
 
         if (i.checked) {
-            a5 = i.id
+            a5 = i.id;
         }
     }
 
     var q = document.getElementsByName('question6');
-    var a6 = NOT_SET
+    var a6 = NOT_SET;
     for (let i of q) {
 
         if (i.checked) {
-            a6 = i.id
+            a6 = i.id;
         }
     }
 
     var q = document.getElementsByName('question7');
-    var a7 = NOT_SET
+    var a7 = NOT_SET;
     for (let i of q) {
 
-        if (i.checked) {
-            a7 = i.id
+        if (i. checked) {
+            a7 = i.id;
         }
     }
 
     var q = document.getElementsByName('question8');
-    var a8 = NOT_SET
+    var a8 = NOT_SET;
     for (let i of q) {
 
         if (i.checked) {
-            a8 = i.id
+            a8 = i.id;
         }
     }
 
     var q = document.getElementsByName('question9');
-    var a9 = NOT_SET
+    var a9 = NOT_SET;
     for (let i of q) {
 
         if (i.checked) {
-            a9 = i.id
+            a9 = i.id;
         }
     }
 
     var q = document.getElementsByName('question10');
-    var a10 = NOT_SET
+    var a10 = NOT_SET;
     for (let i of q) {
 
         if (i.checked) {
-            a10 = i.id
+            a10 = i.id;
         }
     }
 
     if (a1 == NOT_SET) {
-        alert('Answer Q1')
+        alert('Answer Q1');
         return;
     }
 
     if (a2 == NOT_SET) {
-        alert('Answer Q2')
+        alert('Answer Q2');
         return;
     }
 
     if (a3 == NOT_SET) {
-        alert('Answer Q3')
+        alert('Answer Q3');
         return;
     }
 
     if (a4 == NOT_SET) {
-        alert('Answer Q4')
+        alert('Answer Q4');
         return;
     }
 
     if (a5 == NOT_SET) {
-        alert('Answer Q5')
+        alert('Answer Q5');
         return;
     }
 
     if (a6 == NOT_SET) {
-        alert('Answer Q6')
+        alert('Answer Q6');
         return;
     }
 
     if (a7 == NOT_SET) {
-        alert('Answer Q7')
-        return;
+        alert('Answer Q7');
     }
 
     if (a8 == NOT_SET) {
-        alert('Answer Q8')
+        alert('Answer Q8');
         return;
     }
 
     if (a9 == NOT_SET) {
-        alert('Answer Q9')
+        alert('Answer Q9');
         return;
     }
 
     if (a10 == NOT_SET) {
-        alert('Answer Q10')
+        alert('Answer Q10');
         return;
     }
 
     if (a1 == 'correct1') {
-        score++
+        score++;
     }
     
 
     if (a2 == 'correct2') {
-        score++
-    }
-
-    if (a1 == 'correct1') {
-        score++
-    }
-    
-
-    if (a2 == 'correct2') {
-        score++
+        score++;
     }
 
     if (a3 == 'correct3') {
-        score++
+        score++;
     }
     
 
     if (a4 == 'correct4') {
-        score++
+        score++;
     }
 
     if (a5 == 'correct5') {
-        score++
+        score++;
     }
     
 
     if (a6 == 'correct6') {
-        score++
+        score++;
     }
 
     if (a7 == 'correct7') {
-        score++
+        score++;
     }
     
 
     if (a8 == 'correct8') {
-        score++
+        score++;
     }
 
     if (a9 == 'correct9') {
-        score++
+        score++;
     }
     
 
     if (a10 == 'correct10') {
-        score++
+        score++;
     }
 
-    alert(`Score = ${score} out of 10`)
-    
+    alert(`Score = ${score} out of 10`);
+
+    // Reset each button
+    var elements = document.getElementsByTagName("input");
+
+    for (var i = 0; i < elements.length; i++) {
+            if (elements[i].type == "radio") {
+                elements[i].checked = false;
+            }
+        }
 }
