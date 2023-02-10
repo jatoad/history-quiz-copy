@@ -38,16 +38,28 @@ and answers thta ave been left blank. This is to allow the user to get the top s
 
 ### Bug fixes 
 - multiple issues fixed with file paths when creating the live site
-- illegal character in image file name removed
+- wrong file path for js, corrected
 
 ## - Credits 
 
-### Images 
-- all images are sourced from [Adobe Stock](https://stock.adobe.com/uk/)
-### Icons 
-- all icons are sourced from [Font Awesome](https://fontawesome.com/)
 ### Code
-- code from [W3 Schools](https://www.w3schools.com/) 
-**.content::after {content: "";clear: both;display: table;}**
+- javascript from love maths, code institute 
+<!-- document.addEventListener("DOMContentLoaded", function() {
+
+    let buttons = document.getElementsByTagName("button");
+
+    console.log('addEventListener ', buttons)
+
+    for (let button of buttons) {
+        button.addEventListener("click", function() {
+            if (this.getAttribute("data-type") === "submit") {
+                checkAnswer();
+            } else {
+                alert('Submit not clicked')
+            }
+        });
+    }
+
+}); -->
 ### Fonts 
 - All fonts from [Google Fonts](https://fonts.google.com/)
