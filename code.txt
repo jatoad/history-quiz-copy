@@ -1,24 +1,3 @@
-// code from love maths walkthrough project. 
-
-document.addEventListener("DOMContentLoaded", function() {
-
-    let buttons = document.getElementsByTagName("button");
-    console.log('addEventListener ', buttons);
-
-    for (let button of buttons) {
-        button.addEventListener("click", function() {
-            if (this.getAttribute("data-type") === "check-answers") {
-                checkAnswers();
-            // } else if (this.getAttribute("data-type") === "show-answers") {
-            //     showAnswers();
-            } else if (this.getAttribute("data-type") === "reset-answers") {
-                resetAnswers();
-            }
-        });
-    }
-
-});
-
 function showAnswers(){
 
     console.log('showAnswers ');
