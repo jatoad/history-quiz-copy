@@ -1,15 +1,20 @@
 // code from love maths walkthrough project. 
 
+let answers = []
+
 document.addEventListener("DOMContentLoaded", function() {
 
     let buttons = document.getElementsByTagName("button");
 
+    getAnswers();
+
     for (let button of buttons) {
         button.addEventListener("click", function() {
             if (this.getAttribute("data-type") === "check-answers") {
-                getAnswers();
+                checkAnswers();
             } else if (this.getAttribute("data-type") === "show-answers") {
-                showAnswers();
+                getQuestions();
+                //showAnswers();
             } else if (this.getAttribute("data-type") === "reset-answers") {
                 resetAnswers();
             }
@@ -18,21 +23,43 @@ document.addEventListener("DOMContentLoaded", function() {
 
 });
 
+
 /*
 *loops through all correct answers 
 *returns answers to the function
 */
 function getAnswers(){
-    let answerStr = [];
-    let answers = document.getElementsByClassName("answer");
+
+    answers = document.getElementsByClassName("answer");
+
     for(let i = 0;i < answers.length; i++){
-        return answerStr.push(answers[i].textContent);
-        };
-        console.log(answerStr);
-    
+        console.log(answers[i].id);
+        };  
+    }
+
+function resetAnswers(){
+
+    console.log('resetAnswers ');
+
+    // Reset each button
+    var elements = document.getElementsByTagName("input");
+
+    for (var i = 0; i < elements.length; i++) {
+            if (elements[i].type == "radio") {
+                elements[i].checked = false;
+            }
+        }
+
 }
 
+/*
+*
+*/
+function checkAnswers(value){
 
+
+
+}
 
 
 // function showAnswers(){
@@ -75,205 +102,90 @@ function getAnswers(){
 
 // // code from love maths walkthrough project
 
-// function checkAnswers(){
+function checkAnswers(){
 
-//     console.log('checkAnswers ');
+    console.log('checkAnswers ');
 
-//     let score = 0;
-//     const NOT_SET = 'not_set';
+    input_selections = []
+    let score = 0;
+    for (let num = 1 ; num < 11;num++ ) {
 
-//     var q = document.getElementsByClassName('questions');
-//     var a1 = NOT_SET;
-//     for (let i of q) {
+        let q_txt = 'question'+num.toString()
+        console.log(q_txt)
+        var this_q = document.getElementsByName(q_txt);
 
-//         if (i.checked) {
-//             a1 = i.id;
-//         }
-//     }
-  
-//     var q = document.getElementsByName('question2');
-//     var a2 = NOT_SET;
-//     for (let i of q) {
+        // Loop round each possible answer
+        for (let selection of this_q) {
 
-//         if (i.checked) {
-//             a2 = i.id;
-//         }
-//     }
+            if (selection.checked) {
+                input_selections[num] = selection.id;
+                console.log(selection.id)
+            } 
+        }
 
-//     var q = document.getElementsByName('question3');
-//     var a3 = NOT_SET;
-//     for (let i of q) {
+        // See if answer checked
+        if (!input_selections[num]) {
+            alert('Please answer Q'+num.toString());
+            return;
+        }
 
-//         if (i.checked) {
-//             a3 = i.id;
-//         }
-//     }
+    }
 
-//     var q = document.getElementsByName('question4');
-//     var a4 = NOT_SET;
-//     for (let i of q) {
+    // Now check the input selections against the answersk
 
-//         if (i.checked) {
-//             a4 = i.id;
-//         }
-//     }
-
-//     var q = document.getElementsByName('question5');
-//     var a5 = NOT_SET;
-//     for (let i of q) {
-
-//         if (i.checked) {
-//             a5 = i.id;
-//         }
-//     }
-
-//     var q = document.getElementsByName('question6');
-//     var a6 = NOT_SET;
-//     for (let i of q) {
-
-//         if (i.checked) {
-//             a6 = i.id;
-//         }
-//     }
-
-//     var q = document.getElementsByName('question7');
-//     var a7 = NOT_SET;
-//     for (let i of q) {
-
-//         if (i. checked) {
-//             a7 = i.id;
-//         }
-//     }
-
-//     var q = document.getElementsByName('question8');
-//     var a8 = NOT_SET;
-//     for (let i of q) {
-
-//         if (i.checked) {
-//             a8 = i.id;
-//         }
-//     }
-
-//     var q = document.getElementsByName('question9');
-//     var a9 = NOT_SET;
-//     for (let i of q) {
-
-//         if (i.checked) {
-//             a9 = i.id;
-//         }
-//     }
-
-//     var q = document.getElementsByName('question10');
-//     var a10 = NOT_SET;
-//     for (let i of q) {
-
-//         if (i.checked) {
-//             a10 = i.id;
-//         }
-//     }
-
-//     if (a1 == NOT_SET) {
-//         alert('Answer Q1');
-//         return;
-//     }
-
-//     if (a2 == NOT_SET) {
-//         alert('Answer Q2');
-//         return;
-//     }
-
-//     if (a3 == NOT_SET) {
-//         alert('Answer Q3');
-//         return;
-//     }
-
-//     if (a4 == NOT_SET) {
-//         alert('Answer Q4');
-//         return;
-//     }
-
-//     if (a5 == NOT_SET) {
-//         alert('Answer Q5');
-//         return;
-//     }
-
-//     if (a6 == NOT_SET) {
-//         alert('Answer Q6');
-//         return;
-//     }
-
-//     if (a7 == NOT_SET) {
-//         alert('Answer Q7');
-//     }
-
-//     if (a8 == NOT_SET) {
-//         alert('Answer Q8');
-//         return;
-//     }
-
-//     if (a9 == NOT_SET) {
-//         alert('Answer Q9');
-//         return;
-//     }
-
-//     if (a10 == NOT_SET) {
-//         alert('Answer Q10');
-//         return;
-//     }
-
-//     if (a1 == 'correct1') {
-//         score++;
-//     }
+    // if (a1 == 'correct1') {
+    //     score++;
+    // }
     
 
-//     if (a2 == 'correct2') {
-//         score++;
-//     }
+    // if (a2 == 'correct2') {
+    //     score++;
+    // }
 
-//     if (a3 == 'correct3') {
-//         score++;
-//     }
+    // if (a3 == 'correct3') {
+    //     score++;
+    // }
     
 
-//     if (a4 == 'correct4') {
-//         score++;
-//     }
+    // if (a4 == 'correct4') {
+    //     score++;
+    // }
 
-//     if (a5 == 'correct5') {
-//         score++;
-//     }
+    // if (a5 == 'correct5') {
+    //     score++;
+    // }
     
 
-//     if (a6 == 'correct6') {
-//         score++;
-//     }
+    // if (a6 == 'correct6') {
+    //     score++;
+    // }
 
-//     if (a7 == 'correct7') {
-//         score++;
-//     }
+    // if (a7 == 'correct7') {
+    //     score++;
+    // }
     
 
-//     if (a8 == 'correct8') {
-//         score++;
-//     }
+    // if (a8 == 'correct8') {
+    //     score++;
+    // }
 
-//     if (a9 == 'correct9') {
-//         score++;
-//     }
+    // if (a9 == 'correct9') {
+    //     score++;
+    // }
     
 
-//     if (a10 == 'correct10') {
-//         score++;
-//     }
+    // if (a10 == 'correct10') {
+    //     score++;
+    // }
 
-//     alert(`Score = ${score} out of 10`);
+    // alert(`Score = ${score} out of 10`);
 
-//     // Reset each button
-//     var elements = document.getElementsByTagName("input");
+    // Reset each button
+    // var elements = document.getElementsByTagName("input");
 
-//     for (var i = 0; i < elements.length; i++) {
-//             if (elements[i].type == "radio") {
-//                 elements[i].checked = false;
-//             }
-//         }
-// }
+    // for (var i = 0; i < elements.length; i++) {
+    //         if (elements[i].type == "radio") {
+    //             elements[i].checked = false;
+    //         }
+    //     }
+}
