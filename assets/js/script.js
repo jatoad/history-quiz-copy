@@ -18,13 +18,22 @@ document.addEventListener("DOMContentLoaded", function() {
 
 });
 
-
+/*
+*loops through all correct answers 
+*returns answers to the function
+*/
 function getAnswers(){
-    let printAnswerToConsole = document.getElementsByClassName("answer");
-    for(let i = 0;i < printAnswerToConsole.length; i++){
-    console.log("Answers:" + printAnswerToConsole[i].textContent);
-    };
+    let answerStr = [];
+    let answers = document.getElementsByClassName("answer");
+    for(let i = 0;i < answers.length; i++){
+        return answerStr.push(answers[i].textContent);
+        };
+        console.log(answerStr);
+    
 }
+
+
+
 
 // function showAnswers(){
 
