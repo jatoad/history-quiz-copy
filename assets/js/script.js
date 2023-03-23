@@ -6,15 +6,15 @@ document.addEventListener("DOMContentLoaded", function() {
 
     let buttons = document.getElementsByTagName("button");
 
-    getAnswers();
+    // Store answers for later checking againt user selection
+    answers = document.getElementsByClassName("answer").textContent;
 
     for (let button of buttons) {
         button.addEventListener("click", function() {
             if (this.getAttribute("data-type") === "check-answers") {
                 checkAnswers();
             } else if (this.getAttribute("data-type") === "show-answers") {
-                getQuestions();
-                //showAnswers();
+                showAnswers();
             } else if (this.getAttribute("data-type") === "reset-answers") {
                 resetAnswers();
             }
@@ -28,14 +28,14 @@ document.addEventListener("DOMContentLoaded", function() {
 *loops through all correct answers 
 *returns answers to the function
 */
-function getAnswers(){
+function showAnswers(){
 
-    answers = document.getElementsByClassName("answer");
+    answers = document.getElementsByClassName("answer").textContent;
 
     for(let i = 0;i < answers.length; i++){
-        console.log(answers[i].id);
+        answers[i].style.color = "green";
         };  
-    }
+}
 
 function resetAnswers(){
 
@@ -52,56 +52,6 @@ function resetAnswers(){
 
 }
 
-/*
-*
-*/
-function checkAnswers(value){
-
-
-
-}
-
-
-// function showAnswers(){
-
-//     console.log('showAnswers ');
-
-//     // Show answers
-//     var elements = document.getElementsByTagName("input");
-
-//     for (var i = 0; i < elements.length; i++) {
-//             if (elements[i].id == "correct1" ||
-//                 elements[i].id == "correct2" ||
-//                 elements[i].id == "correct3" ||
-//                 elements[i].id == "correct4" ||
-//                 elements[i].id == "correct5" ||
-//                 elements[i].id == "correct6" ||
-//                 elements[i].id == "correct7" ||
-//                 elements[i].id == "correct8" ||
-//                 elements[i].id == "correct9" ||
-//                 elements[i].id == "correct10") {
-//                 elements[i].checked = true;
-//             }
-//         }
-// }
-
-// function resetAnswers(){
-
-//     console.log('resetAnswers ');
-
-//     // Reset each button
-//     var elements = document.getElementsByTagName("input");
-
-//     for (var i = 0; i < elements.length; i++) {
-//             if (elements[i].type == "radio") {
-//                 elements[i].checked = false;
-//             }
-//         }
-
-// }
-
-// // code from love maths walkthrough project
-
 function checkAnswers(){
 
     console.log('checkAnswers ');
@@ -117,75 +67,30 @@ function checkAnswers(){
         // Loop round each possible answer
         for (let selection of this_q) {
 
+            // If selection is checked store the answer
             if (selection.checked) {
-                input_selections[num] = selection.id;
+                // Store answer -1 to match actual answers i.e. from 0
+                input_selections[num-1] = selection.id;
                 console.log(selection.id)
             } 
         }
 
         // See if answer checked
-        if (!input_selections[num]) {
+        if (!input_selections[num-1]) {
             alert('Please answer Q'+num.toString());
             return;
         }
 
     }
 
-    // Now check the input selections against the answersk
+    // Now check the input selections against the answers
 
-    // if (a1 == 'correct1') {
-    //     score++;
-    // }
-    
+    for (ans_idx = 0;ans_idx< answers.length;ans_idx++) {
+        console.log(`answer ${ans_idx} actual = ${answers[ans_idx].id}, selection = ${input_selections[ans_idx]}`)
+        if (answers[ans_idx].id == input_selections[ans_idx]) {
+            score++
+        }
+    }
 
-    // if (a2 == 'correct2') {
-    //     score++;
-    // }
-
-    // if (a3 == 'correct3') {
-    //     score++;
-    // }
-    
-
-    // if (a4 == 'correct4') {
-    //     score++;
-    // }
-
-    // if (a5 == 'correct5') {
-    //     score++;
-    // }
-    
-
-    // if (a6 == 'correct6') {
-    //     score++;
-    // }
-
-    // if (a7 == 'correct7') {
-    //     score++;
-    // }
-    
-
-    // if (a8 == 'correct8') {
-    //     score++;
-    // }
-
-    // if (a9 == 'correct9') {
-    //     score++;
-    // }
-    
-
-    // if (a10 == 'correct10') {
-    //     score++;
-    // }
-
-    // alert(`Score = ${score} out of 10`);
-
-    // Reset each button
-    // var elements = document.getElementsByTagName("input");
-
-    // for (var i = 0; i < elements.length; i++) {
-    //         if (elements[i].type == "radio") {
-    //             elements[i].checked = false;
-    //         }
-    //     }
+    alert(`You scored ${score} out of 10.`)
 }
