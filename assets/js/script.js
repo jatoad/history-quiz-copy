@@ -1,9 +1,8 @@
 // code from love maths walkthrough project. 
 
-let anwers = []
+let answers = [];
 document.addEventListener("DOMContentLoaded", function() {
 
-    answers = document.getElementsByClassName("answer");
     let buttons = document.getElementsByTagName("button");
 
     //console.log('Answers = ', answers[0].id)
@@ -11,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function() {
     for (let button of buttons) {
         button.addEventListener("click", function() {
             if (this.getAttribute("data-type") === "check-answers") {
-                checkAnswers()
+                checkAnswers();
             } else if (this.getAttribute("data-type") === "reset-answers") {
                 resetAnswers();
             }
@@ -27,7 +26,7 @@ function resetAnswers(){
 
     // Reset each button
     var elements = document.getElementsByTagName("input");
-    console.log(elements)
+    console.log(elements);
     for (var i = 0; i < elements.length; i++) {
             if (elements[i].type == "radio") {
                 elements[i].checked = false;
@@ -40,13 +39,13 @@ function checkAnswers(){
 
     console.log('checkAnswers ');
 
-    input_selections = []
+    let input_selections = [];
     let score = 0;
     
     for (let q_num = 1 ; q_num < 11;q_num++ ) {
 
-        let q_txt = 'question'+q_num.toString()
-        console.log(q_txt)
+        let q_txt = 'question'+q_num.toString();
+        console.log(q_txt);
         var this_q = document.getElementsByName(q_txt);
 
         // Loop round each possible answer
@@ -56,7 +55,7 @@ function checkAnswers(){
             if (selection.checked) {
                 // Store answer -1 to match actual answers i.e. from 0
                 input_selections[q_num-1] = selection.id;
-                console.log(selection.id)
+                console.log(selection.id);
             } 
         }
 
@@ -71,16 +70,16 @@ function checkAnswers(){
     // Now check the input selections against the answers
 
 
-    let incorrect = []
-    for (ans_idx = 0;ans_idx< answers.length;ans_idx++) {
-        console.log(`answer ${ans_idx} actual = ${answers[ans_idx].id}, selection = ${input_selections[ans_idx]}`)
+    let incorrect = [];
+    for (let ans_idx = 0;ans_idx< answers.length;ans_idx++) {
+        console.log(`answer ${ans_idx} actual = ${answers[ans_idx].id}, selection = ${input_selections[ans_idx]}`);
         if (answers[ans_idx].id == input_selections[ans_idx]) {
-            score++
+            score++;
         } else {
-            wrong_answer = ans_idx + 1
-            incorrect.push(wrong_answer.toString())
+            let wrong_answer = ans_idx + 1;
+            incorrect.push(wrong_answer.toString());
         }
     }
 
-    alert(`You scored ${score} out of 10. Incorrect Answers ${incorrect}`)
+    alert(`You scored ${score} out of 10. Incorrect Answers ${incorrect}`);
 }
