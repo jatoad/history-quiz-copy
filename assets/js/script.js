@@ -1,11 +1,8 @@
 // code from love maths walkthrough project. 
 
-let answers = [];
 document.addEventListener("DOMContentLoaded", function() {
 
     let buttons = document.getElementsByTagName("button");
-
-    //console.log('Answers = ', answers[0].id)
 
     for (let button of buttons) {
         button.addEventListener("click", function() {
@@ -38,6 +35,8 @@ function resetAnswers(){
 function checkAnswers(){
 
     console.log('checkAnswers ');
+
+    let answers = document.getElementsByClassName("answers"); 
 
     let input_selections = [];
     let score = 0;
