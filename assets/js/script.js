@@ -1,13 +1,12 @@
 // code from love maths walkthrough project. 
 
-let answers = []
-
+let anwers = []
 document.addEventListener("DOMContentLoaded", function() {
 
+    answers = document.getElementsByClassName("answer");
     let buttons = document.getElementsByTagName("button");
 
-    // Store answers for later checking againt user selection
-    answers = document.getElementsByClassName("answer").textContent;
+    //console.log('Answers = ', answers[0].id)
 
     for (let button of buttons) {
         button.addEventListener("click", function() {
@@ -25,16 +24,22 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 /*
-*loops through all correct answers 
-*returns answers to the function
-*/
+// *loops through all correct answers 
+// *returns answers to the function
+// */
 function showAnswers(){
 
-    answers = document.getElementsByClassName("answer").textContent;
+    document.getElementById("question-one").style.color = "green";
 
-    for(let i = 0;i < answers.length; i++){
-        answers[i].style.color = "green";
-        };  
+    document.getElementById("Lincoln").style.color = "green";
+
+    //console.log(answers)
+    for (var i = 0; i < answers.length; i++) {
+        console.log(`elemet ${i} = ${answers[i].id}`)
+
+        document.getElementById(answers[i].id).style.backgroundColor = "green";
+    }
+
 }
 
 function resetAnswers(){
@@ -42,7 +47,7 @@ function resetAnswers(){
     console.log('resetAnswers ');
 
     // Reset each button
-    var elements = document.getElementsByTagName("input");
+    var elements = document.getElementsByClassName("input");
 
     for (var i = 0; i < elements.length; i++) {
             if (elements[i].type == "radio") {
@@ -58,9 +63,10 @@ function checkAnswers(){
 
     input_selections = []
     let score = 0;
-    for (let num = 1 ; num < 11;num++ ) {
+    
+    for (let q_num = 1 ; q_num < 11;q_num++ ) {
 
-        let q_txt = 'question'+num.toString()
+        let q_txt = 'question'+q_num.toString()
         console.log(q_txt)
         var this_q = document.getElementsByName(q_txt);
 
@@ -70,20 +76,22 @@ function checkAnswers(){
             // If selection is checked store the answer
             if (selection.checked) {
                 // Store answer -1 to match actual answers i.e. from 0
-                input_selections[num-1] = selection.id;
+                input_selections[q_num-1] = selection.id;
                 console.log(selection.id)
             } 
         }
 
-        // See if answer checked
-        if (!input_selections[num-1]) {
-            alert('Please answer Q'+num.toString());
+        // See if answer selected
+        if (!input_selections[q_num-1]) {
+            alert('Please answer Q'+q_num.toString());
             return;
         }
 
     }
 
     // Now check the input selections against the answers
+
+
 
     for (ans_idx = 0;ans_idx< answers.length;ans_idx++) {
         console.log(`answer ${ans_idx} actual = ${answers[ans_idx].id}, selection = ${input_selections[ans_idx]}`)
