@@ -38,8 +38,6 @@ function checkAnswers(){
 
     let answers = document.getElementsByClassName("answer"); 
 
-    console.log(answers);
-
     let input_selections = [];
     let score = 0;
     
@@ -82,5 +80,11 @@ function checkAnswers(){
         }
     }
 
-    alert(`You scored ${score} out of 10. Incorrect Answers ${incorrect}`);
+    if (score == 10){
+        alert(`Congratulations you answered all the questions correctly!`);
+    } else if (score == 9){
+        alert(`You scored ${score} out of 10. Question answered incorrectly: ${incorrect}`);
+    } else {
+        alert(`You scored ${score} out of 10. Questions answered incorrectly: ${incorrect}`);
+    }
 }

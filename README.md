@@ -20,13 +20,17 @@ and answers thta ave been left blank. This is to allow the user to get the top s
 ### - score
 
 ![screen shot of website score boxes](/assets/images/score.png)
-- When submit button is pressed, score is gathered and posted as an alert for the user to see.   
+- When submit button is pressed, score is gathered and posted as an alert for the user to see.
+
+### - revealing correct answers 
+- when initially making the web page, i made it so that when the user pressed reveal answers, all answers were shown. this amde it much too easy to get 100% on the quiz. 
+- now, when submitting answers and the score is shown, the questions tht are answereed incorrect are also shown but the answers to the questions answered incorrect are nit revealed.   
 
 ### - Future Additions to the Website
 - in the future i would like to add a sign up section, where the user can enter a username into the quiz, and score is displayed on the alert with the username. 
 
 ## - Testing
-
+- rewrote javascript to make code more readable and concise
 - Website was tested on Safari and Chrome and ran with no issues 
 - each question was tested to see if the score worked aswell as the answer button alert 
 - page was tested using dev tools to make sure that it was suitable for all screen sizes 
@@ -40,6 +44,9 @@ and answers thta ave been left blank. This is to allow the user to get the top s
 ### Bug fixes 
 - multiple issues fixed with file paths when creating the live site
 - wrong file path for js, corrected
+
+### Deployment
+- this project is deployed through github 
 
 ## - Credits 
 
