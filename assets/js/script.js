@@ -36,7 +36,9 @@ function checkAnswers(){
 
     console.log('checkAnswers ');
 
-    let answers = document.getElementsByClassName("answers"); 
+    let answers = document.getElementsByClassName("answer"); 
+
+    console.log(answers);
 
     let input_selections = [];
     let score = 0;
