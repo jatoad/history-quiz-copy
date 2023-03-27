@@ -11,9 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
     for (let button of buttons) {
         button.addEventListener("click", function() {
             if (this.getAttribute("data-type") === "check-answers") {
-                checkAnswers();
-            } else if (this.getAttribute("data-type") === "show-answers") {
-                showAnswers();
+                checkAnswers()
             } else if (this.getAttribute("data-type") === "reset-answers") {
                 resetAnswers();
             }
@@ -92,13 +90,16 @@ function checkAnswers(){
     // Now check the input selections against the answers
 
 
-
+    let incorrect = []
     for (ans_idx = 0;ans_idx< answers.length;ans_idx++) {
         console.log(`answer ${ans_idx} actual = ${answers[ans_idx].id}, selection = ${input_selections[ans_idx]}`)
         if (answers[ans_idx].id == input_selections[ans_idx]) {
             score++
+        } else {
+            wrong_answer = ans_idx + 1
+            incorrect.push(wrong_answer.toString())
         }
     }
 
-    alert(`You scored ${score} out of 10.`)
+    alert(`You scored ${score} out of 10. Incorrect Answers ${incorrect}`)
 }
