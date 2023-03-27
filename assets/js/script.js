@@ -21,32 +21,13 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
-/*
-// *loops through all correct answers 
-// *returns answers to the function
-// */
-function showAnswers(){
-
-    document.getElementById("question-one").style.color = "green";
-
-    document.getElementById("Lincoln").style.color = "green";
-
-    //console.log(answers)
-    for (var i = 0; i < answers.length; i++) {
-        console.log(`elemet ${i} = ${answers[i].id}`)
-
-        document.getElementById(answers[i].id).style.backgroundColor = "green";
-    }
-
-}
-
 function resetAnswers(){
 
     console.log('resetAnswers ');
 
     // Reset each button
-    var elements = document.getElementsByClassName("input");
-
+    var elements = document.getElementsByTagName("input");
+    console.log(elements)
     for (var i = 0; i < elements.length; i++) {
             if (elements[i].type == "radio") {
                 elements[i].checked = false;
